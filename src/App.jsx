@@ -198,7 +198,7 @@ export default function App() {
         <directionalLight position={[10, 10, 5]} intensity={0.8} />
         <Suspense fallback={null}>
           <Sky sunPosition={[100, 20, 100]} />
-          <Environment preset="city" />
+          <Environment files="/potsdamer_platz_1k.hdr" />
           <Character />
           <Level />
         </Suspense>

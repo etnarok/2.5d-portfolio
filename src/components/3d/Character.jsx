@@ -11,7 +11,12 @@ export default function Character() {
 
   // 1. Modeli ve Animasyonları Yükle
   // DİKKAT: Dosya adını kendi indirdiğin modelin adıyla değiştirmelisin!
-  const { scene, animations } = useGLTF('/models/karakter.glb');
+    // YENİ HALİ:
+  // Hem draco dosyamızın adını yazıyoruz, hem de Google'ın çözücü linkini (CDN) ekliyoruz.
+  const { scene, animations } = useGLTF(
+    '/models/karakter-draco.glb', 
+    'https://www.gstatic.com/draco/versioned/decoders/1.5.5/'
+  );
   const { actions } = useAnimations(animations, groupRef);
 
   // 2. Animasyon Kontrolcüsü (Controller)
@@ -91,4 +96,7 @@ export default function Character() {
 }
 
 // Performans için modeli önceden belleğe alıyoruz
-useGLTF.preload('/models/karakter.glb');
+useGLTF.preload(
+  '/models/karakter-draco.glb',
+  'https://www.gstatic.com/draco/versioned/decoders/1.5.5/'
+);
